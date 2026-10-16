@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBPS Recruitment</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f5fb;
+    color: #222;
+}
+
+header {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    color: #30216b;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.banner {
+    background: #25245f;
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px #ddd;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #2346a0;
+    line-height: 1.5;
+}
+
+button {
+    background: #5148bd;
+    color: white;
+    border: none;
+    padding: 15px 22px;
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background: #30216b;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0 18px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+label {
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #e9edff;
+    color: #30216b;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background: #25245f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+@media(max-width: 500px) {
+    .container {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    IBPS<br>
+    <small>Institute of Banking Personnel Selection</small>
+</header>
+
+<section class="banner">
+    <h2 style="color:white;">Common Recruitment Process</h2>
+    <p>Regional Rural Banks (CRP-RRBs-XV)</p>
+    <p>Official Recruitment Information</p>
+</section>
+
+<div class="container">
+
+    <!-- FIRST PAGE -->
+    <section id="homePage" class="card">
+
+        <h2>Welcome to IBPS Recruitment</h2>
+
+        <p>
+            Common Recruitment Process for RRBs (CRP-RRBs-XV)
+            for recruitment of Officers and Office Assistants.
+        </p>
+
+        <button onclick="showRegistration()">
+            New Registration
+        </button>
+
+        <br><br>
+
+        <button onclick="showDetails()">
+            View Recruitment Details
+        </button>
+
+        <p style="margin-top:25px;">
+            Already Registered?
+        </p>
+
+        <button onclick="showLogin()">
+            Login for Registered Candidates
+        </button>
+
+    </section>
+
+
+    <!-- REGISTRATION FORM -->
+    <section id="registrationPage" class="card hidden">
+
+        <h2>New Candidate Registration</h2>
+
+        <form onsubmit="registerCandidate(event)">
+
+            <label>Full Name</label>
+            <input type="text" id="name" required>
+
+            <label>Email Address</label>
+            <input type="email" id="email" required>
+
+            <label>Mobile Number</label>
+            <input type="tel" id="mobile"
+                   pattern="[0-9]{10}"
+                   maxlength="10" required>
+
+            <label>Date of Birth</label>
+            <input type="date" id="dob" required>
+
+            <label>Post Applied For</label>
+            <select id="post" required>
+                <option value="">Select Post</option>
+                <option>Officer Scale I</option>
+                <option>Officer Scale II</option>
+                <option>Officer Scale III</option>
+                <option>Office Assistant</option>
+            </select>
+
+            <button type="submit">Submit Registration</button>
+
+        </form>
+
+        <br>
+
+        <button onclick="showHome()">Back to Home</button>
+
+        <p id="message"></p>
+
+    </section>
+
+
+    <!-- LOGIN FORM -->
+    <section id="loginPage" class="card hidden">
+
+        <h2>Candidate Login</h2>
+
+        <form onsubmit="loginCandidate(event)">
+
+            <label>Registered Email</label>
+            <input type="email" required>
+
+            <label>Password</label>
+            <input type="password" required>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <br>
+        <button onclick="showHome()">Back to Home</button>
+
+    </section>
+
+
+    <!-- SECOND PAGE -->
+    <section id="detailsPage" class="card hidden">
+
+        <h2>
+            Common Recruitment Process for RRBs (CRP-RRBs-XV)
+        </h2>
+
+        <h3>Important Events and Dates</h3>
+
+        <table>
+            <tr>
+                <th>Important Events</th>
+                <th>Dates</th>
+            </tr>
+
+            <tr>
+                <td>Commencement of Online Registration</td>
+                <td>01/09/2026</td>
+            </tr>
+
+            <tr>
+                <td>Closure of Registration</td>
+                <td>27/09/2026</td>
+            </tr>
+
+            <tr>
+                <td>Editing Application Details Starts</td>
+                <td>07/10/2026</td>
+            </tr>
+
+            <tr>
+                <td>Last Date for Editing</td>
+                <td>08/10/2026</td>
+            </tr>
+
+            <tr>
+                <td>Last Date for Printing Application</td>
+                <td>12/10/2026</td>
+            </tr>
+
+        </table>
+
+        <h3>Important Instructions</h3>
+
+        <p>
+            Candidates should read the recruitment notification
+            carefully before applying. Check eligibility, age
+            requirements, educational qualifications and other
+            instructions before submitting the application.
+        </p>
+
+        <button onclick="showRegistration()">
+            New Registration
+        </button>
+
+        <br><br>
+
+        <button onclick="showHome()">Back to Home</button>
+
+    </section>
+
+</div>
+
+<footer>
+    IBPS Recruitment Website - Demo Project
+</footer>
+
+
+<script>
+function hideAll() {
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("registrationPage").classList.add("hidden");
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("detailsPage").classList.add("hidden");
+}
+
+function showHome() {
+    hideAll();
+    document.getElementById("homePage").classList.remove("hidden");
+}
+
+function showRegistration() {
+    hideAll();
+    document.getElementById("registrationPage").classList.remove("hidden");
+    window.scrollTo(0, 0);
+}
+
+function showDetails() {
+    hideAll();
+    document.getElementById("detailsPage").classList.remove("hidden");
+    window.scrollTo(0, 0);
+}
+
+function showLogin() {
+    hideAll();
+    document.getElementById("loginPage").classList.remove("hidden");
+}
+
+function registerCandidate(event) {
+    event.preventDefault();
+
+    document.getElementById("message").innerHTML =
+        "Demo registration form submitted successfully!";
+
+    document.getElementById("message").style.color = "green";
+}
+
+function loginCandidate(event) {
+    event.preventDefault();
+
+    alert("This is a demo login. Backend authentication is not connected.");
+}
+</script>
+
+</body>
+  </html>
