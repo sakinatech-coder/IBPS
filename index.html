@@ -3,122 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IBPS Recruitment</title>
+
+<title>Recruitment Portal | Candidate Login Demo</title>
 
 <style>
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background: #f4f5fb;
-    color: #222;
+    background: #f2f5f9;
+    color: #263445;
+    line-height: 1.6;
 }
 
-header {
-    background: white;
-    padding: 20px;
+.demo-notice {
+    padding: 9px;
     text-align: center;
-    color: #30216b;
-    font-size: 24px;
+    background: #fff0c2;
+    color: #765500;
+    font-size: 12px;
     font-weight: bold;
 }
 
-.banner {
-    background: #25245f;
+header {
+    background: #123b65;
     color: white;
-    padding: 30px 15px;
-    text-align: center;
+    padding: 22px 5%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 55px;
+    width: 55px;
+    background: white;
+    color: #123b65;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+header h1 {
+    font-size: 23px;
+}
+
+header p {
+    font-size: 13px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    background: #092947;
+    padding: 13px 5%;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+nav button:hover {
+    color: #ffd166;
 }
 
 .container {
-    max-width: 800px;
+    width: 92%;
+    max-width: 1050px;
     margin: 25px auto;
-    padding: 20px;
+}
+
+.hero {
+    background: linear-gradient(120deg, #123b65, #287ca8);
+    color: white;
+    padding: 35px 25px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+}
+
+.hero h2 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .card {
     background: white;
     padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 3px 15px #ddd;
-    margin-bottom: 25px;
-}
-
-h2 {
-    color: #2346a0;
-    line-height: 1.5;
-}
-
-button {
-    background: #5148bd;
-    color: white;
-    border: none;
-    padding: 15px 22px;
-    font-size: 17px;
     border-radius: 8px;
+    margin-bottom: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+}
+
+.card h2 {
+    color: #123b65;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #123b65;
+    margin: 22px 0 12px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
-    width: 100%;
 }
 
-button:hover {
-    background: #30216b;
+.btn-primary {
+    background: #123b65;
+    color: white;
 }
 
-input, select {
-    width: 100%;
-    padding: 13px;
-    margin: 10px 0 18px;
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    font-size: 16px;
+.btn-primary:hover {
+    background: #215787;
+}
+
+.btn-light {
+    background: #e8eef5;
+    color: #123b65;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
 }
 
 label {
+    display: block;
     font-weight: bold;
+    font-size: 14px;
+    margin: 16px 0 7px;
 }
 
-table {
+input {
+    display: block;
     width: 100%;
-    border-collapse: collapse;
+    padding: 13px;
+    border: 1px solid #cbd5df;
+    border-radius: 5px;
+    font-size: 15px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
+input:focus {
+    outline: 2px solid #b8d6f2;
+    border-color: #287ca8;
 }
 
-th {
-    background: #e9edff;
-    color: #30216b;
+.small-note {
+    color: #657386;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.error {
+    color: #b42318;
+    font-weight: bold;
+    margin-top: 14px;
+    font-size: 14px;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.demo-stamp {
+    background: #fff0ee;
+    border: 1px dashed #c85c53;
+    color: #a1251d;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px;
+    margin-bottom: 20px;
+}
+
+.result-heading {
+    background: #eaf2fb;
+    border-left: 5px solid #287ca8;
+    padding: 16px;
+    margin-bottom: 22px;
+}
+
+.result-heading h2 {
+    margin-bottom: 5px;
+}
+
+.details-table,
+.exam-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details-table th,
+.details-table td,
+.exam-table th,
+.exam-table td {
+    border: 1px solid #d6dfe8;
+    padding: 13px;
+    text-align: left;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.details-table th {
+    width: 38%;
+    background: #edf3f9;
+    color: #123b65;
+}
+
+.exam-table th {
+    background: #123b65;
+    color: white;
+}
+
+.payment-box {
+    padding: 18px;
+    border-radius: 6px;
+    border: 1px solid #b9d9bf;
+    background: #f0f8f1;
+    margin-top: 12px;
+}
+
+.payment-box h3 {
+    color: #286b39;
+    margin: 0 0 10px;
+}
+
+.payment-status {
+    color: #286b39;
+    font-weight: bold;
 }
 
 footer {
-    background: #25245f;
+    margin-top: 35px;
+    background: #092947;
     color: white;
-    padding: 20px;
     text-align: center;
+    padding: 22px;
+    font-size: 12px;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 600px) {
+    header {
+        padding: 18px 4%;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+
+    header p {
+        font-size: 11px;
+    }
+
+    nav {
+        gap: 15px;
+        padding: 13px 4%;
+    }
+
+    nav button {
+        font-size: 12px;
+    }
+
     .container {
-        padding: 12px;
+        width: 94%;
+        margin: 15px auto;
+    }
+
+    .hero {
+        padding: 25px 18px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
     }
 
     .card {
-        padding: 16px;
+        padding: 17px;
     }
 
-    th, td {
-        padding: 8px;
-        font-size: 13px;
+    .details-table th,
+    .details-table td,
+    .exam-table th,
+    .exam-table td {
+        padding: 9px;
+        font-size: 12px;
+    }
+}
+
+@media print {
+    .demo-notice,
+    header,
+    nav,
+    footer,
+    #homeSection,
+    #loginSection,
+    #recruitmentSection,
+    .button-row {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0;
+    }
+
+    #resultSection {
+        display: block !important;
+    }
+
+    .card {
+        box-shadow: none;
     }
 }
 </style>
@@ -127,228 +352,407 @@ footer {
 <body>
 
 <header>
-    IBPS<br>
-    <small>Institute of Banking Personnel Selection</small>
+    <div class="logo">RP</div>
+
+    <div>
+        <h1>Recruitment Portal</h1>
+        <p>Candidate Login & Examination Information</p>
+    </div>
 </header>
 
-<section class="banner">
-    <h2 style="color:white;">Common Recruitment Process</h2>
-    <p>Regional Rural Banks (CRP-RRBs-XV)</p>
-    <p>Official Recruitment Information</p>
-</section>
+<nav>
+    <button type="button" onclick="showHome()">Home</button>
+    <button type="button" onclick="showLogin()">Candidate Login</button>
+    <button type="button" onclick="showRecruitment()">Recruitment Details</button>
+</nav>
 
 <div class="container">
 
-    <!-- FIRST PAGE -->
-    <section id="homePage" class="card">
+    <!-- HOME PAGE -->
 
-        <h2>Welcome to IBPS Recruitment</h2>
+    <section id="homeSection">
 
-        <p>
-            Common Recruitment Process for RRBs (CRP-RRBs-XV)
-            for recruitment of Officers and Office Assistants.
-        </p>
+        <div class="hero">
+            <h2>Welcome to the Recruitment Portal</h2>
 
-        <button onclick="showRegistration()">
-            New Registration
-        </button>
+            <p>
+                Access the demonstration candidate dashboard to view
+                sample registration details, examination schedule
+                and payment information.
+            </p>
 
-        <br><br>
+            <p>
+                This independent website is created for HTML and
+                JavaScript practice.
+            </p>
 
-        <button onclick="showDetails()">
-            View Recruitment Details
-        </button>
+            <div class="button-row">
+                <button class="btn btn-light"
+                        type="button"
+                        onclick="showLogin()">
+                    Candidate Login
+                </button>
 
-        <p style="margin-top:25px;">
-            Already Registered?
-        </p>
+                <button class="btn btn-light"
+                        type="button"
+                        onclick="showRecruitment()">
+                    Recruitment Details
+                </button>
+            </div>
+        </div>
 
-        <button onclick="showLogin()">
-            Login for Registered Candidates
-        </button>
+        <div class="card">
+            <h2>Already Registered Candidates</h2>
 
-    </section>
+            <p>
+                Open the demo login form to view the sample candidate
+                information.
+            </p>
 
-
-    <!-- REGISTRATION FORM -->
-    <section id="registrationPage" class="card hidden">
-
-        <h2>New Candidate Registration</h2>
-
-        <form onsubmit="registerCandidate(event)">
-
-            <label>Full Name</label>
-            <input type="text" id="name" required>
-
-            <label>Email Address</label>
-            <input type="email" id="email" required>
-
-            <label>Mobile Number</label>
-            <input type="tel" id="mobile"
-                   pattern="[0-9]{10}"
-                   maxlength="10" required>
-
-            <label>Date of Birth</label>
-            <input type="date" id="dob" required>
-
-            <label>Post Applied For</label>
-            <select id="post" required>
-                <option value="">Select Post</option>
-                <option>Officer Scale I</option>
-                <option>Officer Scale II</option>
-                <option>Officer Scale III</option>
-                <option>Office Assistant</option>
-            </select>
-
-            <button type="submit">Submit Registration</button>
-
-        </form>
-
-        <br>
-
-        <button onclick="showHome()">Back to Home</button>
-
-        <p id="message"></p>
+            <div class="button-row">
+                <button class="btn btn-primary"
+                        type="button"
+                        onclick="showLogin()">
+                    Login for Already Registered Candidates
+                </button>
+            </div>
+        </div>
 
     </section>
 
 
-    <!-- LOGIN FORM -->
-    <section id="loginPage" class="card hidden">
+    <!-- LOGIN PAGE -->
+
+    <section id="loginSection" class="card hidden">
 
         <h2>Candidate Login</h2>
 
-        <form onsubmit="loginCandidate(event)">
+        <p>Enter the registration number and a password.</p>
 
-            <label>Registered Email</label>
-            <input type="email" required>
+        <form id="loginForm" autocomplete="off">
 
-            <label>Password</label>
-            <input type="password" required>
+            <label for="registrationNumber">
+                Registration Number
+            </label>
 
-            <button type="submit">Login</button>
+            <input
+                type="text"
+                id="registrationNumber"
+                placeholder="Enter registration number"
+                required
+            >
 
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter demo password"
+                required
+            >
+
+            <div class="button-row">
+
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+
+                <button type="button"
+                        class="btn btn-light"
+                        onclick="showHome()">
+                    Close
+                </button>
+
+            </div>
+
+            <p id="loginError" class="error" role="alert"></p>
+
+        
         </form>
-
-        <br>
-        <button onclick="showHome()">Back to Home</button>
 
     </section>
 
 
-    <!-- SECOND PAGE -->
-    <section id="detailsPage" class="card hidden">
+    <!-- CANDIDATE DETAILS AFTER SUBMIT -->
 
-        <h2>
-            Common Recruitment Process for RRBs (CRP-RRBs-XV)
-        </h2>
+    <section id="resultSection" class="hidden">
 
-        <h3>Important Events and Dates</h3>
+        <div class="card">
 
-        <table>
-            <tr>
-                <th>Important Events</th>
-                <th>Dates</th>
-            </tr>
+            <div class="demo-stamp">
+                SAMPLE DEMONSTRATION RECORD — NOT AN OFFICIAL DOCUMENT
+            </div>
 
-            <tr>
-                <td>Commencement of Online Registration</td>
-                <td>01/09/2026</td>
-            </tr>
+            <div class="result-heading">
+                <h2>Candidate Dashboard</h2>
+                <p>Registration details and examination schedule</p>
+            </div>
 
-            <tr>
-                <td>Closure of Registration</td>
-                <td>27/09/2026</td>
-            </tr>
+            <h3>Personal Details</h3>
 
-            <tr>
-                <td>Editing Application Details Starts</td>
-                <td>07/10/2026</td>
-            </tr>
+            <table class="details-table">
 
-            <tr>
-                <td>Last Date for Editing</td>
-                <td>08/10/2026</td>
-            </tr>
+                <tr>
+                    <th>Candidate Name</th>
+                    <td>Hezal Thakur</td>
+                </tr>
 
-            <tr>
-                <td>Last Date for Printing Application</td>
-                <td>12/10/2026</td>
-            </tr>
+                <tr>
+                    <th>Registration Number</th>
+                    <td>3000171486</td>
+                </tr>
+
+                <tr>
+                    <th>Date of Birth</th>
+                    <td>30-03-2004</td>
+                </tr>
+
+                <tr>
+                    <th>Father's Name</th>
+                    <td>Rajesh Kumar</td>
+                </tr>
+
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        H.No. B24/166, Mohalla Basant Nagar,
+                        Fatehgarh Road, Hoshiarpur
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Mobile Number</th>
+                    <td>7973558719</td>
+                </tr>
+
+            </table>
+
+            <h3>Examination Schedule</h3>
+
+            <table class="exam-table">
+
+                <thead>
+                    <tr>
+                        <th>Examination</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Preliminary Examination</td>
+                        <td>21 &amp; 22 November 2026</td>
+                    </tr>
+
+                    <tr>
+                        <td>Main Examination</td>
+                        <td>20 December 2026</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <h3>Payment Information</h3>
+
+            <div class="payment-box">
+
+                <h3>Payment Status</h3>
+
+                <p>
+                    Payment Mode:
+                    <strong>Online Mode</strong>
+                </p>
+
+                <p style="margin-top:8px;">
+                    Demo Status:
+                    <span class="payment-status">
+                        Received (Simulated)
+                    </span>
+                </p>
+
+                <p class="small-note">
+                    Sample status only. No real payment has been checked
+                    or verified.
+                </p>
+
+            </div>
+
+            <div class="button-row">
+
+                <button type="button"
+                        class="btn btn-primary"
+                        onclick="printDemo()">
+                    Print Demo Page
+                </button>
+
+                <button type="button"
+                        class="btn btn-light"
+                        onclick="logout()">
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECRUITMENT DETAILS -->
+
+    <section id="recruitmentSection" class="card hidden">
+
+        <h2>Recruitment Details</h2>
+
+
+
+        <table class="exam-table">
+
+            <thead>
+                <tr>
+                    <th>Examination</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Preliminary Examination</td>
+                    <td>21 &amp; 22 November 2026</td>
+                </tr>
+
+                <tr>
+                    <td>Main Examination</td>
+                    <td>20 December 2026</td>
+                </tr>
+            </tbody>
 
         </table>
 
-        <h3>Important Instructions</h3>
-
-        <p>
-            Candidates should read the recruitment notification
-            carefully before applying. Check eligibility, age
-            requirements, educational qualifications and other
-            instructions before submitting the application.
+        <p class="small-note">
+            These are sample dates supplied for the demonstration.
+            Check the official recruitment notification for verified dates.
         </p>
 
-        <button onclick="showRegistration()">
-            New Registration
-        </button>
-
-        <br><br>
-
-        <button onclick="showHome()">Back to Home</button>
+        <div class="button-row">
+            <button type="button"
+                    class="btn btn-primary"
+                    onclick="showLogin()">
+                Candidate Login
+            </button>
+        </div>
 
     </section>
 
 </div>
 
 <footer>
-    IBPS Recruitment Website - Demo Project
+    <p>Recruitment Portal — HTML & JavaScript Demo</p>
+    <p>Independent practice project. Not affiliated with IBPS.</p>
+    <p>Candidate, examination and payment information is simulated.</p>
 </footer>
 
 
+<!-- FINAL JAVASCRIPT -->
+
 <script>
-function hideAll() {
-    document.getElementById("homePage").classList.add("hidden");
-    document.getElementById("registrationPage").classList.add("hidden");
-    document.getElementById("loginPage").classList.add("hidden");
-    document.getElementById("detailsPage").classList.add("hidden");
+"use strict";
+
+/* Hide all main sections */
+function hideAllSections() {
+    document.getElementById("homeSection").classList.add("hidden");
+    document.getElementById("loginSection").classList.add("hidden");
+    document.getElementById("resultSection").classList.add("hidden");
+    document.getElementById("recruitmentSection").classList.add("hidden");
 }
 
+/* Show Home */
 function showHome() {
-    hideAll();
-    document.getElementById("homePage").classList.remove("hidden");
-}
+    hideAllSections();
 
-function showRegistration() {
-    hideAll();
-    document.getElementById("registrationPage").classList.remove("hidden");
+    document.getElementById("homeSection").classList.remove("hidden");
+
     window.scrollTo(0, 0);
 }
 
-function showDetails() {
-    hideAll();
-    document.getElementById("detailsPage").classList.remove("hidden");
-    window.scrollTo(0, 0);
-}
-
+/* Show Login */
 function showLogin() {
-    hideAll();
-    document.getElementById("loginPage").classList.remove("hidden");
+    hideAllSections();
+
+    document.getElementById("loginSection").classList.remove("hidden");
+    document.getElementById("loginError").textContent = "";
+
+    window.scrollTo(0, 0);
 }
 
-function registerCandidate(event) {
-    event.preventDefault();
+/* Show Recruitment Details */
+function showRecruitment() {
+    hideAllSections();
 
-    document.getElementById("message").innerHTML =
-        "Demo registration form submitted successfully!";
+    document.getElementById("recruitmentSection").classList.remove("hidden");
 
-    document.getElementById("message").style.color = "green";
+    window.scrollTo(0, 0);
 }
 
-function loginCandidate(event) {
+/* Handle Login Form */
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+
     event.preventDefault();
 
-    alert("This is a demo login. Backend authentication is not connected.");
+    const registrationNumber =
+        document.getElementById("registrationNumber").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const errorMessage =
+        document.getElementById("loginError");
+
+    errorMessage.textContent = "";
+
+    if (registrationNumber === "" || password.trim() === "") {
+        errorMessage.textContent =
+            "Please enter both registration number and password.";
+        return;
+    }
+
+    /* Demo record lookup only — not real authentication */
+    if (registrationNumber !== "3000171486") {
+        errorMessage.textContent =
+            "Demo record not found. Please check the registration number.";
+        return;
+    }
+
+    /*
+      The password is checked only for non-empty input.
+      This demo does not verify any real account password.
+    */
+
+    hideAllSections();
+
+    document.getElementById("resultSection").classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+/* Logout */
+function logout() {
+    document.getElementById("loginForm").reset();
+    document.getElementById("loginError").textContent = "";
+    showHome();
+}
+
+/* Print demonstration page */
+function printDemo() {
+    window.print();
 }
 </script>
 
 </body>
-  </html>
+</html>
